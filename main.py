@@ -56,9 +56,7 @@ def defender_setup():
 @app.route('/choose_first', methods=['POST', 'GET'])
 def choose_first():
    global activeGame
-   print('active game')
-   print(activeGame.attacker.imageFile)
-   print(activeGame.defender.imageFile)
+
    if request.method == 'POST':
         try:
             if request.form['firstButtonA.x']:
@@ -76,7 +74,11 @@ def game_screen():
     if request.method == 'POST':
         return 1
     else:
-        return render_template('game_screen.html', attackerLogo=activeGame.attacker.imageFile, defenderLogo=activeGame.defender.imageFile)
+        return render_template('game_screen.html', attackerLogo=activeGame.attacker.imageFile, 
+                            defenderLogo=activeGame.defender.imageFile, aPVP=activeGame.attacker.primaryVictoryPoints, 
+                            aSVP=activeGame.attacker.secondaryVictoryPoints, aCP=activeGame.attacker.commandPoints,
+                            dPVP=activeGame.defender.primaryVictoryPoints, dSVP=activeGame.defender.secondaryVictoryPoints, 
+                            dCP=activeGame.defender.commandPoints, battleRoundText=activeGame.battleRoundText, activePlayerText='Attacker\'s Turn')
 
 def faction_button_LUT(imageName):
    endIndex = imageName.find('symbol') - 1

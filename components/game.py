@@ -4,7 +4,10 @@ class Game:
     def __init__(self):
         self.attacker = Player(True)
         self.defender = Player(False)
-        self.round = 0
+        self.round = 1
+        self.battleRoundText = 'Battle Round ' + str(self.round)
+
+        self.maxRounds = 5
     
     def setFaction(self, attacker, faction, imageFile):
         if attacker:
@@ -22,15 +25,23 @@ class Game:
 
     def incrementTurn(self):
         self.round += 1
+        self.battleRoundText = 'Battle Round ' + str(self.round)
+
 
     def changeActivePlayer(self):
         self.activePlayer = 'Attacker' if self.activePlayer == 'Defender' else 'Defender'
+        self.activePlayerText = self.activePlayer + '\'s Turn'
         
         self.attacker.modifyCP(1)
         self.defender.modifyCP(1)
 
         if self.activePlayer == self.firstPlayer:
-            self.incrementTurn
+            self.incrementTurn()
+        
+        elif self.round == self.maxRounds and self.activePlayer != self.firstPlayer:
+            return False
+        
+        return True
 
     def modifyPoints(self, player, type, amount):
         if player == 'Attacker':
