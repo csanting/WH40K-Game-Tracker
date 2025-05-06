@@ -10,6 +10,10 @@
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     .content {
         max-width: 1920px;
         margin: auto;
@@ -23,7 +27,7 @@
 
     .column {
         float: left;
-        width: 50%;
+        width: 33%;
         padding: 10px;
     }
 
@@ -34,29 +38,38 @@
     }
 
 </style>
+
 <body>
     <p>
         <h1>Battle Round X</h1>
     </p>
-    <br>
 
     <div class="row">
         <div class="column">
             <p>
-                <h1>Attacker</h1>
+                <h2>Attacker</h2>
             </p>
-            <br>
             <img src="{{url_for('static', filename='/logos/' + attackerLogo)}}" alt="Attacker" style="height:200px;width:200px">
+        </div>
+
+        <div class="column">
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <h2>Primary Victory Points</h2>
+            <br><br><br><br>
+
+            <h2>Secondary Victory Points</h2>
+            <br><br><br><br>
+            
+            <h2>Command Points</h2>
 
         </div>
 
         <div class="column">
             <p>
-                <h1>Defender</h1>
+                <h2>Defender</h2>
             </p>
-            <br>
             <img src="{{url_for('static', filename='/logos/' + defenderLogo)}}" alt="Defender" style="height:200px;width:200px">
         </div>
-        </div>
+    </div>
 </body>
 </html>
