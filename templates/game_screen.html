@@ -50,6 +50,7 @@
     </p>
 
     <div class="row">
+        <form method='POST'>
         <div class="column">
             <p>
                 <h2>Attacker</h2>
@@ -58,26 +59,25 @@
             <img src="{{url_for('static', filename='/logos/' + attackerLogo)}}" alt="Attacker" style="height:200px;width:200px">
             <br><br><br><br>
 
-            <form method = 'POST'>
+
                 <input type="number" id=aPVP name=aPVP min="0" max="100" value={{aPVP}}>
-            </form>
+
             <br><br><br><br><br><br><br><br>
 
-            <form method = 'POST'>
+
                 <input type="number" id=aSVP name=aSVP min="0" max="100" value={{aSVP}}>
-            </form>
+
             <br><br><br><br><br><br><br><br>
 
-            <form method = 'POST'>
                 <input type="number" id=aCP name=aCP min="0" max="100" value={{aCP}}>
-            </form>
+
         </div>
 
         <div class="column">
             <br><br><br><br>
-            <form method = 'POST'>
+
                 <input type="submit" name="progressTurnButton" value="Progress Turn" style="height:50px;width:200px">
-            </form>
+
 
             <br><br><br><br><br><br><br><br><br><br>
             <h2>Primary Victory Points</h2>
@@ -89,9 +89,9 @@
             <h2>Command Points</h2>
             <br><br>
 
-            <form method = 'POST'>
+
                 <input type="submit" name="endGameButton" value="End Game" style="height:25px;width:100px;font-size:15px" >
-            </form>
+
             
 
         </div>
@@ -103,20 +103,20 @@
             <img src="{{url_for('static', filename='/logos/' + defenderLogo)}}" alt="Defender" style="height:200px;width:200px">
             <br><br><br><br>
 
-            <form method = 'POST'>
+
                 <input type="number" id=dPVP name=dPVP min="0" max="100" value={{dPVP}}>
-            </form>
+
             <br><br><br><br><br><br><br><br>
 
-            <form method = 'POST'>
+
                 <input type="number" id=dSVP name=dSVP min="0" max="100" value={{dSVP}}>
-            </form>
+
             <br><br><br><br><br><br><br><br>
 
-            <form method = 'POST'>
+
                 <input type="number" id=dCP name=dCP min="0" max="100" value={{dCP}}>
-            </form>
         </div>
+    </form>
     </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 class Player:
     def __init__(self, attacker):
         self.attacker = attacker
-        self.commandPoints = 0
+        self.commandPoints = 1
         self.primaryVictoryPoints = 0
         self.secondaryVictoryPoints = 0
         self.imageFile = ''

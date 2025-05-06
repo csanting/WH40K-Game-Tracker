@@ -26,7 +26,6 @@ def attacker_setup():
     if request.method == 'POST': 
         for name in image_names:
             try:
-                #try checking request.files or somethingelse from https://tedboy.github.io/flask/generated/generated/flask.Request.html
                 activeGame.setFaction(True, faction_button_LUT(request.form[name + '.x']), name)
                 break
             except KeyError:
@@ -42,7 +41,6 @@ def defender_setup():
     global activeGame
    
     if request.method == 'POST':        
-        #print(request.form)
         for name in image_names:
             try:
                 activeGame.setFaction(False, faction_button_LUT(request.form[name + '.x']), name)
@@ -71,14 +69,37 @@ def choose_first():
 
 @app.route('/game_screen', methods=['POST', 'GET'])
 def game_screen():
+    global activeGame
+
     if request.method == 'POST':
-        return 1
+        if 'progressTurnButton' in request.form and request.form['progressTurnButton'] == 'Progress Turn':
+            activeGame.attacker.primaryVictoryPoints = int(request.form['aPVP'])
+            activeGame.attacker.secondaryVictoryPoints = int(request.form['aSVP'])
+            activeGame.attacker.commandPoints = int(request.form['aCP'])
+
+            activeGame.defender.primaryVictoryPoints = int(request.form['dPVP'])
+            activeGame.defender.secondaryVictoryPoints = int(request.form['dSVP'])
+            activeGame.defender.commandPoints = int(request.form['dCP'])
+
+            # TODO: Save to File results per round
+
+            if not activeGame.gameComplete:
+                activeGame.changeActivePlayer()
+                                
+        if 'endGameButton' in request.form and request.form['endGameButton'] == 'End Game' or activeGame.gameComplete:
+            activeGame = Game()
+        
+        return render_template('game_screen.html', attackerLogo=activeGame.attacker.imageFile, 
+                            defenderLogo=activeGame.defender.imageFile, aPVP=activeGame.attacker.primaryVictoryPoints, 
+                            aSVP=activeGame.attacker.secondaryVictoryPoints, aCP=activeGame.attacker.commandPoints,
+                            dPVP=activeGame.defender.primaryVictoryPoints, dSVP=activeGame.defender.secondaryVictoryPoints, 
+                            dCP=activeGame.defender.commandPoints, battleRoundText=activeGame.battleRoundText, activePlayerText=activeGame.activePlayerText)
     else:
         return render_template('game_screen.html', attackerLogo=activeGame.attacker.imageFile, 
                             defenderLogo=activeGame.defender.imageFile, aPVP=activeGame.attacker.primaryVictoryPoints, 
                             aSVP=activeGame.attacker.secondaryVictoryPoints, aCP=activeGame.attacker.commandPoints,
                             dPVP=activeGame.defender.primaryVictoryPoints, dSVP=activeGame.defender.secondaryVictoryPoints, 
-                            dCP=activeGame.defender.commandPoints, battleRoundText=activeGame.battleRoundText, activePlayerText='Attacker\'s Turn')
+                            dCP=activeGame.defender.commandPoints, battleRoundText=activeGame.battleRoundText, activePlayerText=activeGame.activePlayerText)
 
 def faction_button_LUT(imageName):
    endIndex = imageName.find('symbol') - 1

@@ -7,6 +7,7 @@ class Game:
         self.round = 1
         self.battleRoundText = 'Battle Round ' + str(self.round)
 
+        self.gameComplete = False
         self.maxRounds = 5
     
     def setFaction(self, attacker, faction, imageFile):
@@ -19,9 +20,11 @@ class Game:
         if attacker:
             self.firstPlayer = 'Attacker'
             self.activePlayer = 'Attacker'
+            self.activePlayerText = self.activePlayer + '\'s Turn'
         else:
             self.firstPlayer = 'Defender'
             self.activePlayer = 'Defender'
+            self.activePlayerText = self.activePlayer + '\'s Turn'
 
     def incrementTurn(self):
         self.round += 1
@@ -29,6 +32,9 @@ class Game:
 
 
     def changeActivePlayer(self):
+        if self.gameComplete:
+            return False
+        
         self.activePlayer = 'Attacker' if self.activePlayer == 'Defender' else 'Defender'
         self.activePlayerText = self.activePlayer + '\'s Turn'
         
@@ -43,6 +49,8 @@ class Game:
         
         return True
 
+    '''
+    # TODO: Need's database of missions and objectives
     def modifyPoints(self, player, type, amount):
         if player == 'Attacker':
             if type == 'Primary':
@@ -58,4 +66,5 @@ class Game:
                 self.defender.modifySecondaryVP(amount)
             else:
                 self.defender.modifyCP(amount)
+    '''
     
