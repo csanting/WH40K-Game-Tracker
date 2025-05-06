@@ -25,16 +25,13 @@
 <body>
     <div class="content">
         <p>
-            <h1>Defender Setup</h1>
-            <h3>Select Faction</h3>
+            <h1>Select First Player</h1>
         </p>
         <br>
         <!--<button type="button" style="height:50px;width:100px">Begin Setup</button>-->
         <form method = 'POST'>
-            {% for name in image_names %}
-                <!--<img src="{{ url_for('static', filename='/logos/' + name) }}" name="factionButton" alt=name style="height:200px;width:200px">-->
-                <input type="image" src="{{ url_for('static', filename='/logos/' + name) }}" name={{name}} id={{name}} />
-            {% endfor %}
+                <input type="image" src="{{ url_for('static', filename='/logos/' + attacker) }}" name="firstButtonA" id="firstFormA" />
+                <input type="image" src="{{ url_for('static', filename='/logos/' + defender) }}" name="firstButtonD" id="firstFormD" />
         </form>
         <br>
         <br>

@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battle!</title>
+    <title>WH40K Game Tracker</title>
 </head>
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+<style>
+    .content {
+        max-width: 1920px;
+        margin: auto;
+        background: white;
+        padding: 0px;
+    }
+
+    h1 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+</style>
 <body>
-    <button type="button">Begin Setup</button>
+    <p>
+        <h1>Battle Round X</h1>
+    </p>
+    <br>
+
+    <div class="row">
+        <div class="column">
+            <p>
+                <h1>Attacker</h1>
+            </p>
+            <br>
+            <img src="{{url_for('static', filename='/logos/' + attackerLogo)}}" alt="Attacker" style="height:200px;width:200px">
+
+        </div>
+
+        <div class="column">
+            <p>
+                <h1>Defender</h1>
+            </p>
+            <br>
+            <img src="{{url_for('static', filename='/logos/' + defenderLogo)}}" alt="Defender" style="height:200px;width:200px">
+        </div>
+        </div>
 </body>
 </html>

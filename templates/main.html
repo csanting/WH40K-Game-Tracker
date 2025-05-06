@@ -6,7 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WH40K Game Tracker</title>
 </head>
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+<style>
+    .content {
+        max-width: 1920px;
+        margin: auto;
+        background: white;
+        padding: 0px;
+    }
+
+    h1 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+
+</style>
 <body>
-    <button type="button">Begin Setup</button>
+    <div class="content">
+        <p>
+            <h1>Warhammer 40K Game Tracker</h1>
+            <h3>Author: Gu4rdR3cycl3r</h3>
+            <h5>Version: 0.0.1</h5>
+        </p>
+        <br>
+        <!--<button type="button" style="height:50px;width:100px">Begin Setup</button>-->
+        <form method = 'POST'>
+            <input type="submit" name="setupAttackerButton" value="Begin Setup" style="height:50px;width:100px">
+        </form>
+        <br>
+        <br>
+        <img src="{{url_for('static', filename='homeImage.jpg')}}" alt="Glorius Battle" style="height:635px;width:900px">
+    </div>
+    
 </body>
 </html>

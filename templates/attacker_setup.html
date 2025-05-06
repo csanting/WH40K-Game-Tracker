@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attacker Setup</title>
+    <title>WH40K Game Tracker</title>
 </head>
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+<style>
+    .content {
+        max-width: 1920px;
+        margin: auto;
+        background: white;
+        padding: 0px;
+    }
+
+    h1 {text-align: center;}
+    p {text-align: center;}
+    div {text-align: center;}
+
+</style>
 <body>
-    <button type="button">Begin Setup</button>
+    <div class="content">
+        <p>
+            <h1>Attacker Setup</h1>
+            <h3>Select Faction</h3>
+        </p>
+        <br>
+        <!--<button type="button" style="height:50px;width:100px">Begin Setup</button>-->
+        <form method = 'POST'>
+            {% for name in image_names %}
+                <!--<img src="{{ url_for('static', filename='/logos/' + name) }}" name="factionButton" alt=name style="height:200px;width:200px">-->
+                <input type="image" src="{{ url_for('static', filename='/logos/' + name) }}" name={{name}} id={{name}} />
+            {% endfor %}
+        </form>
+        <br>
+        <br>
+    </div>
+    
 </body>
 </html>
