@@ -27,16 +27,18 @@
         <p>
             <h1>Warhammer 40K Game Tracker</h1>
             <h3>Author: Gu4rdR3cycl3r</h3>
-            <h5>Version: 0.0.1</h5>
+            <h5>Version: 1.0.0</h5>
         </p>
-        <br>
         <!--<button type="button" style="height:50px;width:100px">Begin Setup</button>-->
-        <form method = 'POST'>
+        <form method = 'POST' enctype=multipart/form-data>
             <input type="submit" name="setupAttackerButton" value="Begin Setup" style="height:50px;width:100px">
+            <br><br>            
+            <input type="submit" name="loadGameButton" value="Load Game" style="height:50px;width:100px">
+            <br><br>
+            <input type=file name=file>
         </form>
         <br>
-        <br>
-        <img src="{{url_for('static', filename='homeImage.jpg')}}" alt="Glorius Battle" style="height:635px;width:900px">
+        <img src="{{url_for('static', filename='homeImage.jpg')}}" alt="Glorius Battle" style="height:604px;width:857px">
     </div>
     
 </body>

@@ -4,6 +4,10 @@ class Game:
     def __init__(self):
         self.attacker = Player(True)
         self.defender = Player(False)
+
+        self.activePlayer = ''
+        self.activePlayerText = ''
+
         self.round = 1
         self.battleRoundText = 'Battle Round ' + str(self.round)
 

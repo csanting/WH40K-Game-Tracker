@@ -57,17 +57,17 @@
             </p>
             
             <img src="{{url_for('static', filename='/logos/' + attackerLogo)}}" alt="Attacker" style="height:200px;width:200px">
-            <br><br><br><br>
+            <br><br>
 
 
                 <input type="number" id=aPVP name=aPVP min="0" max="100" value={{aPVP}}>
 
-            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br>
 
 
                 <input type="number" id=aSVP name=aSVP min="0" max="100" value={{aSVP}}>
 
-            <br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br>
 
                 <input type="number" id=aCP name=aCP min="0" max="100" value={{aCP}}>
 
@@ -79,20 +79,20 @@
                 <input type="submit" name="progressTurnButton" value="Progress Turn" style="height:50px;width:200px">
 
 
-            <br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br>
             <h2>Primary Victory Points</h2>
-            <br><br><br><br><br><br>
+            <br><br><br><br><br>
 
             <h2>Secondary Victory Points</h2>
-            <br><br><br><br><br><br><br>
+            <br><br><br><br><br>
             
             <h2>Command Points</h2>
             <br><br>
 
-
-                <input type="submit" name="endGameButton" value="End Game" style="height:25px;width:100px;font-size:15px" >
-
-            
+            <input type="submit" name="saveGameButton" value="Save Game" style="height:25px;width:100px;font-size:15px">
+            <br><br>
+            <input type="text" id="saveFileName" name="saveFileName" placeholder="File Name (exc. extension)"><br><br>
+            <input type="submit" name="endGameButton" value="End Game" style="height:25px;width:100px;font-size:15px">
 
         </div>
 
@@ -101,20 +101,13 @@
                 <h2>Defender</h2>
             </p>
             <img src="{{url_for('static', filename='/logos/' + defenderLogo)}}" alt="Defender" style="height:200px;width:200px">
-            <br><br><br><br>
+            <br><br>
 
-
-                <input type="number" id=dPVP name=dPVP min="0" max="100" value={{dPVP}}>
-
-            <br><br><br><br><br><br><br><br>
-
-
-                <input type="number" id=dSVP name=dSVP min="0" max="100" value={{dSVP}}>
-
-            <br><br><br><br><br><br><br><br>
-
-
-                <input type="number" id=dCP name=dCP min="0" max="100" value={{dCP}}>
+            <input type="number" id=dPVP name=dPVP min="0" max="100" value={{dPVP}}>
+            <br><br><br><br><br><br>
+            <input type="number" id=dSVP name=dSVP min="0" max="100" value={{dSVP}}>
+            <br><br><br><br><br><br>
+            <input type="number" id=dCP name=dCP min="0" max="100" value={{dCP}}>
         </div>
     </form>
     </div>
