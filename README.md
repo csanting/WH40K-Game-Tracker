@@ -22,10 +22,11 @@ Navigate to wherever the project is cloned and simply run:
 
 Desired features with no particular order and no timeline:
 
-- Ability to save and load games in progress
-- Database of mission scenarios and secondary objectives to streamline point tracking
-- Provide (free) instances to individuals who do not want to run locally
-- Cleaner look
+- [x] Ability to save and load games in progress
+- [ ] Database of mission scenarios and secondary objectives to streamline point tracking
+- [ ] Provide (free) instances to individuals who do not want to run locally
+- [ ] Allow multiple devices to edit a singular game instance
+- [ ] Cleaner look
 
 Always open for additional feedback, drop an issue.
 
