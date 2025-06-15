@@ -27,6 +27,7 @@ Desired features with no particular order and no timeline:
 - [ ] Provide (free) instances to individuals who do not want to run locally
 - [ ] Allow multiple devices to edit a singular game instance
 - [ ] Cleaner look
+- [ ] Dark Mode
 
 Always open for additional feedback, drop an issue.
 
